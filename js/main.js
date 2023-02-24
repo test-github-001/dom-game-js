@@ -137,9 +137,13 @@ function testOpenPair(id, image) {
             isOnGame = false;
             POPUP_RESULT.innerText = currentTime;
             POPUP_CONTAINER.style.display = 'flex';
-            if (bestResultObjectData && currentTime >= bestResultObjectData.time) {
-                POPUP_LABEL.style.display = 'none';
-                POPUP_INPUT.style.display = 'none';
+            if (bestResultObjectData) {
+                if (currentTime >= bestResultObjectData.time) {
+                    POPUP_LABEL.style.display = 'none';
+                    POPUP_INPUT.style.display = 'none';
+                } else {
+                    POPUP_INPUT.value = bestResultObjectData.name;
+                }
             }
             setTimeout( ()=> POPUP_CONTAINER.style.opacity = 1, 0 );
         } 
